@@ -48,11 +48,11 @@ rs.Heartbeat:Connect(function()
 			local data = partData[part]
 			local mag = (hrp.Position - data.ogPOS).Magnitude
 
-			if mag <= 6 and not data.state then
+			if mag <= activationDistance and not data.state then
 				tweenDown(part, data.ogPOS, data.ogSize)
 				data.state = true
 
-			elseif mag > 6 and data.state then
+			elseif mag > activationDistance and data.state then
 				tweenUp(part, data.ogPOS, data.ogSize)
 				data.state = false
 			end
